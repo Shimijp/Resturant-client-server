@@ -1,0 +1,20 @@
+1,STARTER,Hummus with Tahini,28
+2,STARTER,Falafel (5 balls),22
+3,STARTER,Israeli Salad,32
+4,STARTER,Focaccia with Pesto,38
+5,STARTER,Soup of the Day,25
+10,MAIN,Entrecote Steak (300g),135
+11,MAIN,Chicken Schnitzel,68
+12,MAIN,Beef Burger (220g),72
+13,MAIN,Pasta Pomodoro,55
+14,MAIN,Salmon Fillet,95
+15,MAIN,Lamb Kebab,85
+20,DRINK,Coca Cola,13
+21,DRINK,Coca Cola Zero,13
+22,DRINK,Mineral Water,10
+23,DRINK,Fresh Orange Juice,18
+24,DRINK,Lemonade,15
+25,DRINK,Draft Beer (0.5L),32
+30,DESSERT,Chocolate Souffle,42
+31,DESSERT,Bavarian Cream,38
+32,DESSERT,Cheese Cake,40
