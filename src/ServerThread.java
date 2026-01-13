@@ -31,6 +31,7 @@ public class ServerThread extends Thread {
         InputStream inputStream = socket.getInputStream();
         ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
         Object request = objectInputStream.readObject();
+        // decide what to do based on request type
         if((request instanceof ClientRequest))
         {
 
@@ -48,7 +49,13 @@ public class ServerThread extends Thread {
                     break;
 
                 case PLACE_ORDER:
+                    /*todo: process order here */
                     break;
+
+                default:
+                    System.out.println("Unknown request type");
+
+
             }
         }
 

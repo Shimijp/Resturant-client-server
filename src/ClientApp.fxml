@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <VBox fx:id="menuDisplay" prefHeight="200.0" prefWidth="100.0" />
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <Button fx:id="onOrdarPressed" mnemonicParsing="false" text="Ordar" BorderPane.alignment="CENTER" />
+   </bottom>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="totalLabe" text="Label" />
+            <ScrollPane fitToHeight="true" prefHeight="200.0" prefWidth="200.0">
+               <content>
+                  <VBox fx:id="ordarDetails" prefHeight="200.0" prefWidth="100.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </right>
+   <top>
+      <Label fx:id="statusLabel" text="Status" BorderPane.alignment="CENTER" />
+   </top>
+</BorderPane>
