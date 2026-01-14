@@ -47,7 +47,7 @@ public class ClientThread implements Runnable {
                             cont.updateStatus("Status: Connected to server");
                             List<MenuItem> menu = (List<MenuItem>) ((ServerResponse)recvPayload).getPayload();
                             cont.updateMenuDisplay(menu);
-                            hasRecvMenu = true;
+
                         });
                         break;
                     case ERROR: // got error from server
