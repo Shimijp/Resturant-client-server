@@ -3,6 +3,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class ServerThread extends Thread {
     private Socket socket;
@@ -45,8 +46,18 @@ public class ServerThread extends Thread {
                     break;
 
                 case PLACE_ORDER:
-                    /*todo: process order here */
-                    response = new ServerResponse(ResponseType.ORDER_CONFIRMATION, "Order has been placed successfully");
+                    System.out.println("Received order request");
+                    ClientDetails details = ((ClientOrdar)((ClientRequest) request).getPayload()).getClientDetails();
+                    System.out.println("Client Name: " + details.getName());
+                    System.out.println("Client Address: " + details.getAddress());
+                    System.out.println("Client Phone: " + details.getPhoneNumber());
+                    ArrayList<MenuItem> orderedItems = (ArrayList<MenuItem>) ((ClientOrdar)((ClientRequest) request).getPayload()).getOrderedItems();
+                    System.out.println("Ordered Items:");
+                    for(MenuItem item: orderedItems)
+                    {
+                        System.out.println("- " + item.getItemDesc() + " : $" + item.getPrice());
+                    }
+                    response = new ServerResponse(ResponseType.ORDER_CONFIRMATION, "");
                     break;
 
                 default:
