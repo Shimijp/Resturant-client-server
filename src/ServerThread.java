@@ -31,6 +31,7 @@ public class ServerThread extends Thread {
         InputStream inputStream = socket.getInputStream();
         ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
         Object request = objectInputStream.readObject();
+        ServerResponse response;
         // decide what to do based on request type
         if((request instanceof ClientRequest))
         {
@@ -39,24 +40,32 @@ public class ServerThread extends Thread {
             switch (reqType)
             {
                 case GET_MENU:
-                    // Send menu items back to client
-                    objectOutputStream.writeObject(menu.getAllMenuItems());
-                    objectInputStream.close();
-                    inputStream.close();
-                    objectOutputStream.close();
-                    outputStream.close();
-                    socket.close();
+                    // fetch menu from menu class and send it back
+                    response = new ServerResponse(ResponseType.MENU,menu.getAllMenuItems());
                     break;
 
                 case PLACE_ORDER:
                     /*todo: process order here */
+                    response = new ServerResponse(ResponseType.ORDER_CONFIRMATION, "Order has been placed successfully");
                     break;
 
                 default:
-                    System.out.println("Unknown request type");
+                    //default case error
+                    response = new ServerResponse(ResponseType.ERROR, "Unknown request type");
+                   break;
+
 
 
             }
+            System.out.println("Processed request of type: " + reqType);
+            System.out.println("Sending response of type: " + response.getResponseType());
+            //finally send the response, what ever it is, polymorphism in action!!!!
+            objectOutputStream.writeObject(response);
+            objectInputStream.close();
+            inputStream.close();
+            objectOutputStream.close();
+            outputStream.close();
+            socket.close();
         }
 
 
