@@ -46,6 +46,7 @@ public class ServerThread extends Thread {
                     break;
 
                 case PLACE_ORDER:
+                    //could have made a function for this but this maman is  longggggg already
                     System.out.println("Received order request");
                     ClientDetails details = ((ClientOrdar)((ClientRequest) request).getPayload()).getClientDetails();
                     System.out.println("Client Name: " + details.getName());
@@ -57,6 +58,8 @@ public class ServerThread extends Thread {
                     {
                         System.out.println("- " + item.getItemDesc() + " : $" + item.getPrice());
                     }
+                    // in an actual application, here we would process the order (e.g., save to database, initiate delivery, etc.)
+                    // for now, just send back an order confirmation response
                     response = new ServerResponse(ResponseType.ORDER_CONFIRMATION, "");
                     break;
 

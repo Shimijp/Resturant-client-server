@@ -1,5 +1,6 @@
 import java.io.Serializable;
 
+//for sending responses from server to client, using polymorphism
 public class ServerResponse implements Serializable {
     private ResponseType responseType;
     private Object payload;
